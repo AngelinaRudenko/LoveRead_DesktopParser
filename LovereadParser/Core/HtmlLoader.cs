@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Parser.Core
 {
-    //Предназначение этого класса загружать код HTML страницы из указанных настроек парсера.
+    //Предназначение этого класса загружать код HTML страницы из указанных настроек парсера
     class HtmlLoader
     {
-        readonly HttpClient client; //для отправки HTTP запросов и получения HTTP ответов.
+        readonly HttpClient client; //для отправки HTTP запросов и получения HTTP ответов
         readonly string url; //сюда будем передовать адрес.
 
         public HtmlLoader(IParserSettings settings)
@@ -21,15 +17,15 @@ namespace Parser.Core
             url = $"{settings.BaseUrl}/{settings.Postfix}/"; //Здесь собирается адресная строка
         }
 
-        public async Task<string> GetSourceByPage(int id) // id - это id страницы
+        public async Task<string> GetSourceByPage(int id)
         {
             string currentUrl = url.Replace("{CurrentId}", id.ToString());//Подменяем {CurrentId} на номер страницы
-            HttpResponseMessage responce = await client.GetAsync(currentUrl); //Получаем ответ с сайта.
+            HttpResponseMessage responce = await client.GetAsync(currentUrl); //Получаем ответ с сайта
             string source = default;
 
             if (responce != null && responce.StatusCode == HttpStatusCode.OK)
             {
-                source = await responce.Content.ReadAsStringAsync(); //Помещаем код страницы в переменную.
+                source = await responce.Content.ReadAsStringAsync(); //Помещаем код страницы в переменную
             }
             return source;
         }

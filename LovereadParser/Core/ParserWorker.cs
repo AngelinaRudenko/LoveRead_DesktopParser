@@ -1,10 +1,6 @@
 ﻿using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Parser.Core
 {
@@ -36,9 +32,9 @@ namespace Parser.Core
             get { return isActive; }
         }
 
-        //Это событие возвращает спаршенные за итерацию данные( первый аргумент ссылка на парсер, и сами данные вторым аргументом)
+        //Событие возвращает спаршенные за итерацию данные( первый аргумент ссылка на парсер, и сами данные вторым аргументом)
         public event Action<object, T> OnNewData;
-        //Это событие отвечает информирование при завершении работы парсера.
+
         public event Action<object> OnComplited;
 
         //1-й конструктор, в качестве аргумента будет передеваться класс реализующий интерфейс IParser
@@ -72,7 +68,6 @@ namespace Parser.Core
                     T result = parser.Parse(document);
                     OnNewData?.Invoke(this, result);
                 }
-                //return;
             }
 
             OnComplited?.Invoke(this);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonLoad = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.labelBookId = new System.Windows.Forms.Label();
@@ -40,8 +41,9 @@
             // 
             // buttonLoad
             // 
-            this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoad.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLoad.BackColor = System.Drawing.Color.Snow;
             this.buttonLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLoad.Location = new System.Drawing.Point(94, 470);
@@ -57,7 +59,8 @@
             this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.Location = new System.Drawing.Point(40, 49);
+            this.pictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox.Location = new System.Drawing.Point(40, 66);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(319, 372);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,8 +71,9 @@
             // 
             this.labelBookId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelBookId.AutoSize = true;
+            this.labelBookId.BackColor = System.Drawing.Color.Transparent;
             this.labelBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelBookId.Location = new System.Drawing.Point(397, 52);
+            this.labelBookId.Location = new System.Drawing.Point(386, 70);
             this.labelBookId.Name = "labelBookId";
             this.labelBookId.Size = new System.Drawing.Size(107, 29);
             this.labelBookId.TabIndex = 9;
@@ -77,18 +81,21 @@
             // 
             // labelTitle
             // 
-            this.labelTitle.AutoSize = true;
+            this.labelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.Location = new System.Drawing.Point(35, 17);
+            this.labelTitle.Location = new System.Drawing.Point(25, 17);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(0, 29);
+            this.labelTitle.Size = new System.Drawing.Size(334, 29);
             this.labelTitle.TabIndex = 10;
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // numericUpDownId
             // 
             this.numericUpDownId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownId.Location = new System.Drawing.Point(402, 84);
+            this.numericUpDownId.Location = new System.Drawing.Point(391, 102);
             this.numericUpDownId.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -108,7 +115,7 @@
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.ForeColor = System.Drawing.Color.LawnGreen;
-            this.progressBar.Location = new System.Drawing.Point(40, 416);
+            this.progressBar.Location = new System.Drawing.Point(40, 433);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(319, 23);
             this.progressBar.Step = 1;
@@ -116,9 +123,11 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FloralWhite;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(559, 553);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.labelTitle);
@@ -126,6 +135,9 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.numericUpDownId);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(581, 609);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Скачать книгу с LoveRead";
